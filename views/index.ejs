@@ -9,6 +9,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+SA+Beginner:wght@600&family=Mulish:wght@1000&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 
 <%-include('header.ejs') %>
@@ -38,28 +42,63 @@
 		</div>
 
 	</div>
+	<div class="space-between">
+
+	</div>
 	<div class="blog-tabs">
 		<div class="blog-tab tab1">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>This is the first blog</h4>
 
 		</div>
 		<div class="blog-tab tab2">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>This is the second blog</h4>
 		</div>
 		<div class="blog-tab tab3">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>This is the third blog</h4>
 		</div>
 		<div class="blog-tab tab4">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>This is the fourth</h4>
 		</div>
 		<div class="blog-tab tab5">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>this is the fifth blog</h4>
 		</div>
 		<div class="blog-tab tab6">
+			<div class="tag-image">
+				<img class="image" src="/images/ae.jpg" alt="">
+			</div>
 			<h4>Click here to see more blogs</h4>
 		</div>
 
 	</div>
+	<script>
+		$(document).ready(function() {
+		// Attach a click event handler to the div with class "blog-tab"
+			$(".blog-tab").click(function() {
+				// Define the URL you want to redirect to
+				var redirectUrl = "https://www.amazingfacts.org";
+
+				// Redirect to the specified URL
+				window.location.href = redirectUrl;
+			});
+		});
+
+		
+	</script>
 
 </body>
 <%-include('footer.ejs') %>

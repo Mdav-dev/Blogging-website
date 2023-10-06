@@ -34,6 +34,8 @@ body{
 li a{
 	text-decoration: none;
 	color: black;
+	font-family: 'Caveat', cursive;
+	font-size: 1.4rem;
 }
 .container{
 	display: grid;
@@ -41,6 +43,7 @@ li a{
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	gap: 10px;
 	margin: 20px;
+	margin-top: 40px;
 }
 .item{
 	display: flex;
@@ -58,7 +61,7 @@ li a{
 .item2{
 	grid-row: 1/2;
 	grid-column: 3/5;
-	background-color:black;
+	background-color:rgba(0, 0, 0, 0.397);
 	color:gold;
 	margin: 5px;
 	padding: 5px;
@@ -68,7 +71,7 @@ li a{
 .item3{
 	grid-row: 3/4;
 	grid-column: 1/3;
-	background-color: #26059c;
+	background-color: #26059c86;
 	font-family: 'Edu SA Beginner', cursive;;
 	color: gold;
 
@@ -76,7 +79,7 @@ li a{
 .item4{
 	grid-row: 2/4;	
 	grid-column: 3/5;
-	background-color: #F04520;
+	background-color: #f046209a;
 	font-family: 'Young Serif', serif
 }
 
@@ -91,8 +94,10 @@ li a{
 	background-color: white;
 	border-radius: 5px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
+	align-items: center ;
+	margin-bottom: 50px;
+	cursor: pointer;
 }
 .footer{
 	display: flex;
@@ -107,4 +112,14 @@ li a{
 	text-decoration: none;
 	display: flex;
 	justify-content: center;
+}
+/* .tag-image{
+	height: 100px;
+} */
+.image{
+	height: 230px;
+	width: 230px;
+}
+.space-between{
+	height: 300px;
 }
