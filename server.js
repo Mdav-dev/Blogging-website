@@ -25,6 +25,25 @@ app.get("/", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  try {
+    const response = await axios.get(`${API_URL}/posts`);
+    console.log(response);
+    res.render("index.ejs", { posts: response.data });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching posts" });
+  }
+});
+
+app.post("/blogs/:id", async (req, res) =>{
+  try{
+	const response = await axios.get(`${API_URL}/posts/${req.params.id}`);
+	console.log(response);
+	res.render("blog-page.ejs", {posts: response.data});
+  }catch(error){
+	res.status(500).json({message: "Error fetching post"})
+  }
+})
 // Route to render the edit page
 app.get("/new", (req, res) => {
   res.render("modify.ejs", { heading: "New Post", submit: "Create Post" });

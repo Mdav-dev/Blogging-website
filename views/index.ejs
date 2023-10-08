@@ -7,12 +7,15 @@
 	<title>faithpulsepoint</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+SA+Beginner:wght@600&family=Mulish:wght@1000&family=Young+Serif&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+SA+Beginner:wght@600&family=Mulish:wght@1000&family=Young+Serif&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Neucha&family=Newsreader:ital,opsz,wght@0,6..72,200;1,6..72,200&family=Sofia&family=Tangerine&display=swap" rel="stylesheet">
 </head>
 
 <%-include('header.ejs') %>
@@ -20,71 +23,105 @@
 <body>
 	<div class="container">
 		<div class="item item1">
-			<h2 class="page-title">The Lord is My Shephard I Shall Not Want</h2>
+			<h2 class="page-title">"He is no fool who looses what he cannot keep,
+				to gain that which he cannot loose"-
+			</h2>
+			<h5 class="author">Jim Elliot</h5>
 		</div>
 		<div class="item item2">
-			<h4>Ever since Jesus came and pardoned I have been singing everyday,
-				I've never been sorry praise the Lord
-				that I trusted his blessed Holy Name
+			<h4>"Cheap grace is the grace we bestow on ourselves. 
+				Cheap grace is the preaching of forgiveness without requiring repentance."
 			</h4>
+			<h6 class="author">Dietrich Bonhoeffer</h6>
 		</div>
 		<div class="item item3">
-			<h5>John 3:16 - For God so loved the world that He gave His begotten son
-				that whosoever believes in Him should not perish but have everlasting life
+			<h5>"I believe in Christianity as I believe that the sun has risen: 
+				not only because I see it, but because by it I see everything else."
 			</h5>
+			<h5 class="author">C.S. Lewis</h5>
 		</div>
 		<div class="item item4">
 			<p>
-				And some statements by Jesus can be controversial if not well understood.
-				Jesus says He came not to bring peace but a sword. What does he mean yet elsewhere
-				he invites all who labor and burden and he will give them rest
+				"Thou hast made us for thyself, O Lord, and our heart is restless until it finds its rest in thee."
 			</p>
+			<h5 class="author">Augustine of Hippo</h5>
 		</div>
 
 	</div>
 	<div class="space-between">
 
 	</div>
+	
 	<div class="blog-tabs">
 		<div class="blog-tab tab1">
 			<div class="tag-image">
-				<img class="image" src="/images/ae.jpg" alt="">
+				<img class="image" src="/images/ac.jpg" alt="">
 			</div>
-			<h4>This is the first blog</h4>
+			<span class="tab-wording">
+				<h4> <%= posts[0].title %> </h4>
+			</span>			
+			
 
 		</div>
 		<div class="blog-tab tab2">
 			<div class="tag-image">
-				<img class="image" src="/images/ae.jpg" alt="">
+				<img class="image" src="/images/ad.jpg" alt="">
 			</div>
-			<h4>This is the second blog</h4>
+			<span class="tab-wording">
+				<h4><%= posts[1].title %></h4>
+			</span>
+			
 		</div>
 		<div class="blog-tab tab3">
 			<div class="tag-image">
 				<img class="image" src="/images/ae.jpg" alt="">
 			</div>
-			<h4>This is the third blog</h4>
+			<span class="tab-wording">
+				<h4><%= posts[2].title %>g</h4>
+			</span>
+			
 		</div>
 		<div class="blog-tab tab4">
 			<div class="tag-image">
-				<img class="image" src="/images/ae.jpg" alt="">
+				<img class="image" src="/images/af.jpg" alt="">
 			</div>
-			<h4>This is the fourth</h4>
+			<span class="tab-wording">
+				<h4><%= posts[1].title %></h4>
+			</span>
+			
 		</div>
 		<div class="blog-tab tab5">
 			<div class="tag-image">
-				<img class="image" src="/images/ae.jpg" alt="">
+				<img class="image" src="/images/ag.jpg" alt="">
 			</div>
-			<h4>this is the fifth blog</h4>
+			<span class="tab-wording">
+				<h4><%= posts[2].title %></h4>
+			</span>
+			
 		</div>
 		<div class="blog-tab tab6">
 			<div class="tag-image">
-				<img class="image" src="/images/ae.jpg" alt="">
+				<img class="image" src="/images/ah.jpg" alt="">
 			</div>
-			<h4>Click here to see more blogs</h4>
+			<span class="tab-wording">
+				<h4>Click here to see more blogs</h4>
+			</span>
+			
 		</div>
 
 	</div>
+
+	<div class="join">
+		<h3 class="join-title" style="margin-bottom: 4px;">	Join Us Today </h3>
+		<p class="join-statement"> Join our email list and get first access to new blog posts and other fun updates.</p>
+		<form action="" method="post" class="email-form">
+			<label for="member" style="margin-bottom: 3px; display:block; font-size: 13px;">Enter your email below*</label>
+			<input style="width: 100%; height: 25px; display: inline;" type="email" name="member" id="member">
+			<button style="height: 25px; border-radius: 10%; margin-top: 5px; display: inline;" type="submit">Sign up</button>
+		</form>
+	</div>
+
+
 	<script>
 		$(document).ready(function() {
 		// Attach a click event handler to the div with class "blog-tab"
@@ -97,7 +134,7 @@
 			});
 		});
 
-		
+
 	</script>
 
 </body>

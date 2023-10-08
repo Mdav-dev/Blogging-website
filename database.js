@@ -50,34 +50,35 @@ const Blog = mongoose.model("Blog", blogSchema);
 //       });
 
 
-const blog = new Blog ({
-	_id: 1,
-	title:"The Rise of Decentralized Finance",
-	content: "Decentralized Finance (DeFi) is an emerging and rapidly evolving field in the blockchain industry. It refers to the shift from traditional, centralized financial systems to peer-to-peer finance enabled by decentralized technologies built on Ethereum and other blockchains. With the promise of reduced dependency on the traditional banking sector, DeFi platforms offer a wide range of services, from lending and borrowing to insurance and trading.",
-	author: "Mwalimu",
-	date: new Date()
-});
-// blog.save();
+// const blog = new Blog ({
+// 	_id: 1,
+// 	title:"The Rise of Decentralized Finance",
+// 	content: "Decentralized Finance (DeFi) is an emerging and rapidly evolving field in the blockchain industry. It refers to the shift from traditional, centralized financial systems to peer-to-peer finance enabled by decentralized technologies built on Ethereum and other blockchains. With the promise of reduced dependency on the traditional banking sector, DeFi platforms offer a wide range of services, from lending and borrowing to insurance and trading.",
+// 	author: "Mwalimu",
+// 	date: new Date()
+// });
+// // blog.save();
 
-const blog1 = new Blog ({
-	_id: 4,
-	title: "The Impact of Artificial Intelligence on Modern Businesses",
-    content:
-      "Artificial Intelligence (AI) is no longer a concept of the future. It's very much a part of our present, reshaping industries and enhancing the capabilities of existing systems. From automating routine tasks to offering intelligent insights, AI is proving to be a boon for businesses. With advancements in machine learning and deep learning, businesses can now address previously insurmountable problems and tap into new opportunities.",
-    author: "Mia Williams",
-	date: new Date()
-});
-const blog2 = new Blog ({
-	_id: 5,
-	title: "Sustainable Living: Tips for an Eco-Friendly Lifestyle",
-	content:
-	  "Sustainability is more than just a buzzword; it's a way of life. As the effects of climate change become more pronounced, there's a growing realization about the need to live sustainably. From reducing waste and conserving energy to supporting eco-friendly products, there are numerous ways we can make our daily lives more environmentally friendly. This post will explore practical tips and habits that can make a significant difference.",
-	author: "Samuel Green",
-	date: new Date()
-});
+// const blog1 = new Blog ({
+// 	_id: 6,
+// 	title: "The Impact of Artificial Intelligence on Modern Businesses",
+//     content:
+//       "Artificial Intelligence (AI) is no longer a concept of the future. It's very much a part of our present, reshaping industries and enhancing the capabilities of existing systems. From automating routine tasks to offering intelligent insights, AI is proving to be a boon for businesses. With advancements in machine learning and deep learning, businesses can now address previously insurmountable problems and tap into new opportunities.",
+//     author: "Mia Williams",
+// 	date: new Date()
+// });
+// const blog2 = new Blog ({
+// 	_id: 7,
+// 	title: "Sustainable Living: Tips for an Eco-Friendly Lifestyle",
+// 	content:
+// 	  "Sustainability is more than just a buzzword; it's a way of life. As the effects of climate change become more pronounced, there's a growing realization about the need to live sustainably. From reducing waste and conserving energy to supporting eco-friendly products, there are numerous ways we can make our daily lives more environmentally friendly. This post will explore practical tips and habits that can make a significant difference.",
+// 	author: "Samuel Green",
+// 	date: new Date()
+// });
 
 
 // Blog.insertMany([blog1, blog2]).then((blogs) => {
+// 	mongoose.connection.close();
 // 	console.log('Successfully saved all the blogs to blogDB:');
 //       })
 //       .catch((error) => {
@@ -102,16 +103,42 @@ const blog2 = new Blog ({
 // Blog.find({}).then((posts) => {
 // 	mongoose.connection.close();	
 	
-// 	  console.log(posts); // Assuming 'name' is the field you want to retrieve
-		
-// 	// console.log('Names:', names);
-// 	// console.log('Query result:', fruits);
+// 	// console.log(posts[-1]._id);	
+// 	console.log(posts)		
+	
 //       })
 //       .catch((error) => {
-// 	mongoose.connnection.close();
+// 	mongoose.connection.close();
 // 	console.error('Error querying documents:', error);
 //       });
-    
+
+//       async function getLastDocumentId() {
+// 	try {
+// 	  const lastDocument = await Blog.findOne({}, {}, { sort: { _id: -1 } });
+// 	  if (lastDocument) {
+// 	    const lastDocumentId = lastDocument._id;
+// 	    console.log(`ID of the last document: ${lastDocumentId}`);
+// 	  } else {
+// 	    console.log('No documents found in the collection.');
+// 	  }
+// 	} catch (error) {
+// 	  console.error(error);
+// 	}
+//       }
+      
+//       getLastDocumentId();
+    var newId = 0;
+async function giveId(){
+	try{
+		const lastDocument = await Blog.findOne({}, {}, { sort: { _id: -1 } });
+		 newId = lastDocument._id + 1;
+		 console.log('This is the id: '+newId);
+	}catch(error){
+		console.error(error);
+	}
+}
+ giveId();
+console.log(newId);
 // Blog.findByIdAndRemove(4, (err, removedDocument) => {
 // 	if (err) {
 // 	  console.error(err);
@@ -135,17 +162,17 @@ const blog2 = new Blog ({
       
 //       deleteBlog();
 
-      async function updateBlog() {
-	try {
-		await Blog.updateOne({ _id: 1 }, {	
-			 title: 'The Rise of Decentralized Finance',						
-			 content: "Decentralized Finance (DeFi) is an emerging and rapidly evolving field in the blockchain industry. It refers to the shift from traditional, centralized financial systems to peer-to-peer finance enabled by decentralized technologies built on Ethereum and other blockchains. With the promise of reduced dependency on the traditional banking sector, DeFi platforms offer a wide range of services, from lending and borrowing to insurance and trading.",
-			 author: "Alex Thompson"	 
+//       async function updateBlog() {
+// 	try {
+// 		await Blog.updateOne({ _id: 1 }, {	
+// 			 title: 'The Rise of Decentralized Finance',						
+// 			 content: "Decentralized Finance (DeFi) is an emerging and rapidly evolving field in the blockchain industry. It refers to the shift from traditional, centralized financial systems to peer-to-peer finance enabled by decentralized technologies built on Ethereum and other blockchains. With the promise of reduced dependency on the traditional banking sector, DeFi platforms offer a wide range of services, from lending and borrowing to insurance and trading.",
+// 			 author: "Alex Thompson"	 
 
-			});
-	  console.log('Blog updated successfully');
-	} catch (error) {
-	  console.error('Error updating the blog:', error);
-	}
-      }		      
-      updateBlog();
+// 			});
+// 	  console.log('Blog updated successfully');
+// 	} catch (error) {
+// 	  console.error('Error updating the blog:', error);
+// 	}
+//       }		      
+//       updateBlog();

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>faithpulsepoint</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+SA+Beginner:wght@600&family=Mulish:wght@1000&family=Young+Serif&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="blog-container">  
+	<span class="blog-header">
+		<h6>faithpulsepoint</h6>
+		<h4>
+			<%=post.date %>
+		</h4>
+
+	</span>
+          <h2 class="blog-title" style="font-weight: 600;">
+            <%=post.title%>
+          </h2>
+          <p style="font-family: 'Caveat', cursive;">
+            <%=post.content%>
+          </p>
+          <h5>By: <%=post.author%> </h5>
+  </div>
+
+</body>
+
+</html>
