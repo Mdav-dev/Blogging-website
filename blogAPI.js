@@ -29,36 +29,41 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // GET all posts
-app.get("/posts", (req, res) => {
-	Blog.find({}).then((posts) => {
-		// mongoose.connection.close();	
-		if(posts.length>5){
-			posts = getFirstFiveItems(posts);
-			res.json(posts);
-		}else{
-			res.json(posts);
+app.get("/posts/all", (req, res) =>{
+	async function getAll() {
+		try {
+		  // Find the first 5 blogs
+		  const blogs = await Blog.find({}, 'title date');
+		  res.json(blogs);
+		  
+		} catch (error) {
+		  console.error('Error querying documents:', error);
 		}
-		   
-	      })
-	      .catch((error) => {
-		mongoose.connection.close();
-		console.error('Error querying documents:', error);
-	      }); 
-
-	      function getFirstFiveItems(arr) {				
-		return arr.slice(0, 5);
 	      }
+	      getAll();
+})
+// GET first 5 items
+app.get("/posts", (req, res) => {
+	
+	async function findFirst5Blogs() {
+		try {
+		  // Find the first 5 blogs
+		  const posts = await Blog.find({}, 'title author').limit(5);
+		  res.json(posts);	      
+		} catch (error) {
+		  console.error('Error querying documents:', error);
+		}
+	      }
+	      findFirst5Blogs();
 });
 
 // GET a specific post by id
 app.get("/posts/:id", (req, res) => {
 	async function getPost() {
 		try{	
-			var idIn = parseInt(req.params.id);
+			var idIn = req.params.id;
 			const post = await Blog.findOne({_id: idIn});
-
-		  	res.json(post);
-		
+		  	res.json(post);		
 	      }
 	      catch(error){
 		console.error('Error querying documents:', error);
@@ -72,8 +77,14 @@ app.get("/posts/:id", (req, res) => {
 // POST a new post
 app.post("/posts", (req, res) => {
 		
-	async function giveId(){
+	async function postBlog(){
 		try{
+			const date = new Date();
+			const formattedDate = date.toLocaleDateString('en-US', {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			});
 			const lastDocument = await Blog.findOne({}, {}, { sort: { _id: -1 } });
 			newId = lastDocument._id + 1;
 			const post = new Blog ({
@@ -81,16 +92,17 @@ app.post("/posts", (req, res) => {
 				title: req.body.title,
 				content: req.body.content,
 				author: req.body.author,
-				date: new Date(),
+				date: formattedDate,
 			      });
 			      post.save();
+			      
 			    
 			      res.status(201).json(post);
 		}catch(error){
 			console.error(error);
 		}
 	}
-  giveId();
+  postBlog();
   
 });
 

@@ -2,24 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Section</title>
-  <link rel="stylesheet" href="style.css">  
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Section</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Edu+SA+Beginner:wght@600&family=Mulish:wght@1000&family=Young+Serif&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Neucha&family=Newsreader:ital,opsz,wght@0,6..72,200;1,6..72,200&family=Sofia&family=Tangerine&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="new-container">
-    <h1>
+    <h1 style="font-family: 'Neucha';">
       <%= heading %>
     </h1>
 
     <% if (locals.post) { %>
       <form class="forms" id="editForm" method="post" action="/api/posts/<%=post.id%>">
-        <input type="text" name="title" value="<%=post.title %>">
-        <textarea id="content" rows="10"><%=post.content %></textarea>
-        <input type="text" name="author" value="<%=post.author %>">
-        <button class="full-width" type="submit">
+        <input class="title" style="width: 100%;" type="text" name="title" value="<%=post.title %>">
+        <textarea class="content" id="content" rows="20"><%=post.content %></textarea>
+        <input class="author" type="text" name="author" value="<%=post.author %>">
+        <button class="submit full-width" type="submit">
           <%= submit %>
         </button>
       </form>
@@ -27,11 +37,10 @@
       <% } else {%>
 
         <form class="forms" id="newPostForm" method="post" action="/api/posts">
-          <input type="text" name="title" placeholder="Title" required>
-          <textarea name="content" placeholder="Content" required rows="10"></textarea>
-          <input type="text" name="author" placeholder="Author" required>
-
-          <button class="full-width" type="submit">
+          <input class="title"  type="text" name="title" placeholder="Title" required>
+          <textarea class="content" name="content" placeholder="Content" required rows="20"></textarea>
+          <input class="author" type="text" name="author" placeholder="Author" required>
+          <button  class="full-width submit" type="submit">
             <%= submit %>
           </button>
         </form>

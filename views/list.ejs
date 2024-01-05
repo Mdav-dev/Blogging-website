@@ -16,20 +16,64 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Neucha&family=Newsreader:ital,opsz,wght@0,6..72,200;1,6..72,200&family=Sofia&family=Tangerine&display=swap" rel="stylesheet">
-</head>
 
+  <style>
+    .list-container{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px;
+      
+    }
+    ul{
+      list-style: none;
+    }
+    #postsList{
+      display: grid;
+    }
+    .list{
+      background-color: white;
+      padding: 8px;
+      border-radius: 5%;
+      width: 25%;
+      height: 100px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<%-include('header.ejs') %>
 <body>
-  <div class="container">
-    <h1>My Blog</h1>
-    <a id="newPostBtn" href="/new">New Post</a>
-    <ul id="postsList">
-      <% posts.forEach(post=> { %>
-        <li>
+  <% var id = 0 %>
+  <div class="list-container">
+    <ul id="postsList" >
+      <% posts.forEach(post=> { 
+        id = post.id
+        // $(document).ready(function() {
+        //   // Attach a click event handler to the div with class "blog-tab"
+        //     $(".list").click(function() {
+        //       const id = post.id
+        //       // Define the URL you want to redirect to
+        //       var redirectUr = "/blog/" + id;
+        //       var redirectUrl = "/"
+      
+        //       // Redirect to the specified URL
+        //       window.location.href = redirectUrl;
+        //     });
+          // });
+          %>
+        <li class="list">
           <h2>
             <%=post.title%>
           </h2>
           <small>
-            <%=post.date %>
+            <% const date = new Date(post.date);
+            const formattedDate = date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            }); %>
+            <%=formattedDate %>
           </small>
           <small>By: <%=post.author%> </small>
         </li>
@@ -38,5 +82,21 @@
   </div>
 
 </body>
+<%-include('footer.ejs') %>
+
+<script>
+  $(document).ready(function() {
+		// Attach a click event handler to the div with class "blog-tab"
+			$(".list").click(function() {
+        const id = post.id
+				// Define the URL you want to redirect to
+				var redirectUrl = "/blog/" + id;
+
+				// Redirect to the specified URL
+				window.location.href = redirectUrl;
+			});
+		});
+
+</script>
 
 </html>

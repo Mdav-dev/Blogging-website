@@ -84,7 +84,7 @@ li a{
 	grid-row: 2/4;	
 	grid-column: 3/5;
 	background-color: #f046209a;
-	font-family: 'Young Serif', serif
+	font-family: 'Young Serif', serif;
 }
 
 .author{
@@ -100,7 +100,7 @@ li a{
 }
 .blog-tab{
 	background-color: white;
-	border-radius: 5px;
+	border-radius: 5%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center ;
@@ -139,23 +139,17 @@ li a{
 .image{
 	height: 230px;
 	width: 230px;
+	border-top-left-radius: 5%;
+	border-bottom-left-radius: 5%;
 }
-.space-between{
-	height: 200px;
-}
-.new-container{
+.forms, #editForm{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 100px;
-}
-.forms{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 400px;
+	width: 500px;
+	border: 10px;
+
 }
 .join{
 	display: flex;
@@ -170,3 +164,8 @@ li a{
 .email-form{
 	width: 100%;
 }
+
+form.title{
+	width: 100%;
+}
+
